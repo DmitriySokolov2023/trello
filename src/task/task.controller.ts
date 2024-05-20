@@ -31,7 +31,7 @@ export class TaskController {
   @Post()
   @Auth()
   create(@CurrentUser('id') userId: string, @Body() dto: CreateTasksDto) {
-    return this.taskService.create(userId, dto);
+    return this.taskService.create(dto, userId);
   }
 
   @Delete(':id')
