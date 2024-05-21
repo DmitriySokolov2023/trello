@@ -14,19 +14,6 @@ export class TaskService {
     });
   }
 
-  // async create(userId: string, dto: CreateTasksDto) {
-  //   const data: CreateTasksDto = {
-  //     name: dto.name,
-  //     createdAt: dto.createdAt,
-  //     isCompleted: false,
-  //     priority: dto.priority,
-  //     userId: dto.userId,
-  //   };
-  //   return this.prisma.task.create({
-  //     data,
-  //   });
-  // }
-
   async create(dto: TaskDto, userId: string) {
     return this.prisma.task.create({
       data: {

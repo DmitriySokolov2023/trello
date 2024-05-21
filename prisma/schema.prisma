@@ -67,7 +67,7 @@ model PomodoroSessions {
 
   isCompleted Boolean @default(false) @map("is_completed")
 
-  rounds PomodoroRaund[]
+  rounds PomodoroRound[]
 
   user   User?   @relation(fields: [userId], references: [id])
   userId String?
@@ -75,7 +75,7 @@ model PomodoroSessions {
   @@map("pomadoro_sessions")
 }
 
-model PomodoroRaund {
+model PomodoroRound {
   id String @id @default(cuid())
 
   createdAt DateTime @default(now()) @map("createt_map")
@@ -87,7 +87,7 @@ model PomodoroRaund {
   pomodoroSessions   PomodoroSessions? @relation(fields: [pomodoroSessionsId], references: [id], onDelete: Cascade)
   pomodoroSessionsId String?           @map("pomodoro_session_id")
 
-  @@map("pomadoro_round")
+  @@map("pomodoro_round")
 }
 
 enum Priority {

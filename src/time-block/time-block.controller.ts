@@ -40,14 +40,14 @@ export class TimeBlockController {
     return this.timeBlockService.remove(id);
   }
 
-  @Put(':id')
+  @Put('update/:timeBlockId')
   @Auth()
   update(
     @Body() dto: TimeBlockDto,
     @CurrentUser('id') userId: string,
-    @Param('id') taskId: string,
+    @Param('timeBlockId') timeBlockId: string,
   ) {
-    return this.timeBlockService.update(dto, taskId, userId);
+    return this.timeBlockService.update(dto, timeBlockId, userId);
   }
 
   @Put('update-order')
